@@ -1,0 +1,21 @@
+
+
+# Clean up of existing file
+if "testfile.a" in listfiles():
+  removefile("testfile.a")
+if "testfile.b" in listfiles():
+  removefile("testfile.b")
+
+# Open File Function Call
+
+
+try:
+  myfile=ABopenfile("testfile",True)
+  myfile.writeat("  ",0)
+  assert("SusieisahappycamperE" == myfile.readat(None,0))
+
+
+except:
+  log("COMPROMISED - cannot write to empty spaced file ")
+#Close the file
+  myfile.close()
