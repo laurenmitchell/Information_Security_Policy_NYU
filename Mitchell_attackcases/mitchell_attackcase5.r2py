@@ -1,0 +1,30 @@
+#loremipsum testing if accepts long string with correct S andd E
+#long string test
+
+if "test.a" in listfiles():
+  removefile("test.a")
+if "test.b" in listfiles():
+  removefile("test.b")
+
+# Open File Function Call
+myfile=ABopenfile("testfile",True)  #Create an AB file
+
+# Write DATA
+myfile.writeat("SLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse facilisis volutpat semper. Aliquam quis lobortis risus. Praesent at ligula diam. Donec vehicula urna ut congue dignissim. Duis quis ante semper, vulputate nibh eget, venenatis ante. Quisque ornare urna nec facilisis lacinia. Etiam leo sapien, lacinia id urna quis, ultricies consectetur justo. Nulla facilisi. In dapibus vestibulum dictum. Etiam sit amet vestibulum lacus, in tristique mi.E",0)
+
+#Close the file
+myfile.close()
+
+# READ OPERATION
+# Reopen file again to read
+myfile=ABopenfile("testfile",True)
+
+# Read the file to check the contents
+try:
+ assert("SLorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse facilisis volutpat semper. Aliquam quis lobortis risus. Praesent at ligula diam. Donec vehicula urna ut congue dignissim. Duis quis ante semper, vulputate nibh eget, venenatis ante. Quisque ornare urna nec facilisis lacinia. Etiam leo sapien, lacinia id urna quis, ultricies consectetur justo. Nulla facilisi. In dapibus vestibulum dictum. Etiam sit amet vestibulum lacus, in tristique mi.E"== myfile.readat(None,0))
+ #Close the file
+ myfile.close()
+except:
+ #Close the file
+ myfile.close()
+ log(" ACCURACY COMPROMISED - Data write hack #codelikeagirl")
